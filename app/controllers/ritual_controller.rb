@@ -1,0 +1,2 @@
+class RitualController < ApplicationController
+end 
