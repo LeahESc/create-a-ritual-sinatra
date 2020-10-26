@@ -3,10 +3,17 @@
 
 <form method="POST" action="/rituals">
 <br>
-<label>Select a Category:</label>
-    <% @categories.each do |c|%>
-    <input type="radio" name="category_id" id="<%= c.id %>" value="<%= c.id %>"><%= c.name %><br>
-    <% end %>
+    <label>Select an existing category:</label>
+    <select name="name" id="category_id">
+    <option value="">Select Category</option>
+    <% Category.all.each do |c|%>
+    <option value="category"><%= c.name %></option>
+    <% end%>
+    </select>
+    <br>
+    <label>Or, create a new category:</label>
+    <input type="text" name="name">
+    <br>
     <label>Ritual Title:<input type="text" name="title"></label>
     <br>
     <label>Description: <input type="text" name="description"></label>
@@ -18,9 +25,28 @@
 <br>
 <br>
 <br>
-<select name="ritual[category_id]" id="ritual_category_id">
-    <option value="">Select Category</option>
-    <% Category.all.each do |c| %>
-    <option value="<%= c.id %>"><%= c.name %> </option>
-    </select>
-    <%end%>
+
+  
+  <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Select a category
+  </button>
+  <% Category.all.each do |c|%>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item"><%= c.name %>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+    <% end%>
+  </div>
+</div>
+
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Select a category
+  </button>
+<select class="form-control">
+<% Category.all.each do |c|%>
+  <option><%= c.name %></option>
+   <% end%>
+</select>
+</div>
