@@ -20,13 +20,14 @@ class RitualsController < ApplicationController
     end 
 
     post '/rituals' do 
-        # 
         if logged_in?
+            # binding.pry
             @ritual = current_user.rituals.build(title: params[:title], description: params[:description], category_id: params[:category_id])
+            if !params["name"].empty? 
+                @ritual.category = Category.create(name: params[:name])
+            end
             if @ritual.save
-                binding.pry
-                @category = Category.all.find_by(id: @ritual.category_id)
-                redirect '/rituals'
+                redirect '/categories'
             else  
                 redirect '/rituals/new'
             end 
@@ -54,7 +55,7 @@ class RitualsController < ApplicationController
             if @ritual
             erb :'rituals/edit'
             else  
-                redirect '/rituals'
+                redirect '/categories'
             end 
         else  
             redirect '/login'
@@ -66,12 +67,12 @@ class RitualsController < ApplicationController
             @ritual = current_user.rituals.find_by(id: params[:id])
             if @ritual 
                 if @ritual.update(title: params[:title], description: params[:description])
-                redirect '/rituals'
+                redirect '/categories'
                 else  
                 redirect "/rituals/#{@ritual.id}/edit"
                 end 
             else  
-                redirect '/rituals'
+                redirect '/categories'
             end 
         else  
             redirect '/login'  
@@ -84,9 +85,9 @@ class RitualsController < ApplicationController
             @ritual = current_user.rituals.find_by(id: params[:id])
             if @ritual 
                 @ritual.destroy 
-                redirect '/rituals'
+                redirect '/categories'
             else  
-                redirect '/rituals'
+                redirect '/categories'
             end 
         else  
             redirect '/login'
