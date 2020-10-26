@@ -5,7 +5,7 @@
 <br>
 <label>Select a Category:</label>
     <% @categories.each do |c|%>
-    <input type="radio" name="ritual[category_id]" id="<%= category.id %>" value="<%= category.id %>"><%= category.name %><br>
+    <input type="radio" name="category_id" id="<%= c.id %>" value="<%= c.id %>"><%= c.name %><br>
     <% end %>
     <label>Ritual Title:<input type="text" name="title"></label>
     <br>
@@ -14,6 +14,10 @@
     <input type="submit" value="Create New Ritual">
 </form>
 
+
+<br>
+<br>
+<br>
 <select name="ritual[category_id]" id="ritual_category_id">
     <option value="">Select Category</option>
     <% Category.all.each do |c| %>

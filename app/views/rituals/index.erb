@@ -1,9 +1,11 @@
 <h2>Your well-being rituals</h2>
 
 <% @rituals.each do |r| %>
-< r.category.name >
+<h3><% r.category_id %></h3>
 <h3><%= r.title %></h3>
 <h3><%= r.description %></h3>
+<button><a href="/rituals/<%= r.id %>/edit">Edit this ritual</a></button>
+<button><a href="/rituals/<%= r.id %>/delete">Delete this ritual</a></button>
 <hr>
 <% end%>
 

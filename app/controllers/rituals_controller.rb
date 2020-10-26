@@ -13,7 +13,6 @@ class RitualsController < ApplicationController
     get '/rituals/new' do
         if logged_in?
             @categories = Category.all 
-            @categories2 = Category.pluck(:name, :id)
             erb :'rituals/new'
         else  
             redirect '/login'
@@ -21,11 +20,12 @@ class RitualsController < ApplicationController
     end 
 
     post '/rituals' do 
-        # binding.pry
+        # 
         if logged_in?
-        @ritual = current_user.rituals.build(title: params[:title], description: params[:description])
-        @ritual.save
+            @ritual = current_user.rituals.build(title: params[:title], description: params[:description], category_id: params[:category_id])
             if @ritual.save
+                binding.pry
+                @category = Category.all.find_by(id: @ritual.category_id)
                 redirect '/rituals'
             else  
                 redirect '/rituals/new'
