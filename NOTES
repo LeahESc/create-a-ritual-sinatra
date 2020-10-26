@@ -1,0 +1,22 @@
+New form with select dropdown menu older, non-bootstrap styling: 
+
+
+<form method="POST" action="/rituals">
+<br>
+    <label>Select an existing category:</label>
+    <select name="category_id" id="category_id">
+    <option value="">Select Category</option>
+    <% Category.all.each do |c|%>
+    <option value="<%= c.id %>" name="category_id"><%= c.name %></option>
+    <% end%>
+    </select>
+    <br>
+    <label>Or, create a new category:</label>
+    <input type="text" name="name">
+    <br>
+    <label>Ritual Title:<input type="text" name="title"></label>
+    <br>
+    <label>Description: <input type="text" name="description"></label>
+    <br>
+    <input type="submit" value="Create New Ritual">
+</form>
