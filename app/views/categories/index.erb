@@ -1,11 +1,10 @@
-<h2>Your well-being rituals</h2>
 
 <% @categories.each do |c| %>
-<h3><%= c.name %></h3>
+<h2><%= c.name %></h2>
 <h3><% c.rituals.each do |r| %></h3>
 <h3><%= r.title %></h3>
 <p><%= r.description %></p>
-<a href="/rituals/<%= r.id %>/edit">Edit this ritual</a>
+<button><a href="/rituals/<%= r.id %>/edit">Edit this ritual</a></button>
   <form action="/rituals/<%= r.id %>/delete" method="post">
     <input type="hidden" name="_method" value="delete">
     <input class="submit" type="submit" value="Delete This Ritual">
