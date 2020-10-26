@@ -10,7 +10,7 @@ class UsersController < ApplicationController
         if @user
             @user.save
             session[:user_id] = @user.id
-            redirect '/rituals'
+            redirect '/categories'
         else  
             redirect '/signup'
         end
