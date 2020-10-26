@@ -17,16 +17,17 @@
 
   <% if logged_in? %>
   
-      <nav class="navbar navbar-light" style="background-color: #e3f2fd;"> 
+      <nav class="navbar navbar-light" style="background-color: #996600;"> 
       <a class="navbar-brand" href="/">Ritual</a>
-      <div class="navbar-nav">
-      <a class="nav-link active" href="/categories">My Rituals</a>
+      <div class="form-inline">
+      <a class="nav-link active" color= "#ffeacc;"  href="/categories">My Rituals</a>
       <a class="nav-link" href="/rituals/new">Create New Ritual</a>
       <a class="nav-link" href="/logout">Logout</a>
       </div>
+      </div>
       </nav>
     <% else %>
-        <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+        <nav class="navbar navbar-light" style="background-color: #996600;">
         <a class="navbar-brand" href="/">Ritual</a>
         <div class="navbar-nav">
         <a class="nav-link active" href="/signup">Signup <span class="sr-only">(current)</span></a>
