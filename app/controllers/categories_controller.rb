@@ -18,17 +18,17 @@ class CategoriesController < ApplicationController
         end
     end 
 
-    delete '/categories/:id/delete' do
-        if logged_in? 
-            @category = current_user.categories.find_by(id: params[:id])
-            if @category 
-                @category.destroy 
-                redirect '/categories'
-            else  
-                redirect '/categories'
-            end 
-        else  
-            redirect '/login'
-        end
-    end 
+    # delete '/categories/:id/delete' do
+    #     if logged_in? 
+    #         @category = current_user.categories.find_by(id: params[:id])
+    #         if @category 
+    #             @category.destroy 
+    #             redirect '/categories'
+    #         else  
+    #             redirect '/categories'
+    #         end 
+    #     else  
+    #         redirect '/login'
+    #     end
+    # end 
 end 

@@ -20,3 +20,11 @@ New form with select dropdown menu older, non-bootstrap styling:
     <br>
     <input type="submit" value="Create New Ritual">
 </form>
+
+
+ div.navbar img#logo {
+    display: block;
+    height: 100px;
+    float: left;
+    padding: 8px;
+  }
