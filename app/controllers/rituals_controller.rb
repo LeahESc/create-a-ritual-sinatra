@@ -12,19 +12,30 @@ class RitualsController < ApplicationController
 
     get '/rituals/new' do
         if logged_in?
+            @category_selected = false
             @categories = Category.all 
             erb :'rituals/new'
         else  
             redirect '/login'
         end
     end 
+    
+    get '/categories/:category_id/rituals/new' do
+        if logged_in?
+            @category_selected = true
+            @category_id = params[:category_id]
+            erb :'rituals/new'
+        else  
+            redirect '/login'
+        end
+    end
 
     post '/rituals' do 
         if logged_in?
-            binding.pry
+            # binding.pry
             @ritual = current_user.rituals.build(title: params[:title], description: params[:description], category_id: params[:category_id])
-            if !params["name"].empty? 
-                @ritual.category = Category.create(name: params[:name])
+            if !!params["name"] && !params["name"].empty? 
+                @ritual.category = Category.find_or_create_by(name: params[:name])
             end
             if @ritual.save
                 redirect '/categories'
