@@ -1,0 +1,17 @@
+
+<h2><%= @category.name %> </h2>
+<% @category.rituals.each do |r| %>
+    <h3><%= r.title %></h3>
+    <p><%= r.description %></p>
+    <button><a href="/rituals/<%=r.id%>/edit">Edit this ritual</a></button> 
+     <form action="/rituals/<%= r.id %>/delete" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input class="submit" type="submit" value="Delete This Ritual">
+  </form>
+<% end%>
+
+<br>
+<br>
+
+
+<button><a href="/rituals/new">Create a new ritual</a></button>
