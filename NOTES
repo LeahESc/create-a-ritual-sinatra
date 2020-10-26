@@ -28,3 +28,40 @@ New form with select dropdown menu older, non-bootstrap styling:
     float: left;
     padding: 8px;
   }
+
+
+
+    # delete '/categories/:id/delete' do
+    #     if logged_in? 
+    #         @category = current_user.categories.find_by(id: params[:id])
+    #         if @category 
+    #             @category.destroy 
+    #             redirect '/categories'
+    #         else  
+    #             redirect '/categories'
+    #         end 
+    #     else  
+    #         redirect '/login'
+    #     end
+    # end 
+
+
+       <div class="navbar">
+
+      <% if logged_in? %><a href="/categories"><% else %><a href="/"><% end %></a>
+
+      <% if logged_in? %>
+      <a href="/logout"><div class="button" id="logout">Log out</div></a>      
+      <a href="/rituals/new"><div class="button" id="new-ritual">Create a Ritual</div></a>
+      <% end %>
+    </div>
+
+    div.navbar {
+    position: absolute;
+    top: 10px;
+    width: 100%;
+    border-bottom: #666 2px solid;
+    background-color: rgb(109, 71, 2);
+    z-index: 1
+  }
+  

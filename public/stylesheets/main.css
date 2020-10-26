@@ -29,15 +29,7 @@
     padding: 2.25%; /* 18px / 800px */
     width: 85%;
   }
-  div.navbar {
-    position: fixed;
-    top: 0px;
-    width: 100%;
-    border-bottom: #666 2px solid;
-    background-color: rgb(65, 42, 0);
-    z-index: 1
-  }
-  
+
  
   h1 {
     font-size: 36px;
@@ -98,6 +90,15 @@
     -webkit-box-shadow: none;
     box-shadow: none;
     width: auto;
+  }
+
+  div.navbar {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    border-bottom: #666 2px solid;
+    background-color: #FFF;
+    z-index: 1
   }
 
   .content, .sidebar {

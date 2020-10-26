@@ -14,15 +14,26 @@
     <link rel="stylesheet" href="/stylesheets/main.css" />
   </head>
   <body>
-      <div class="navbar">
 
-      <% if logged_in? %><a href="/categories"><% else %><a href="/"><% end %></a>
-
-      <% if logged_in? %>
-      <a href="/logout"><div class="button" id="logout">Log out</div></a>      
-      <a href="/tweets/new"><div class="button" id="new-tweet"><img src="/images/pencil.png" alt="New tweet" /></div></a>
+  <% if logged_in? %>
+  
+      <nav class="navbar navbar-light" style="background-color: #e3f2fd;"> 
+      <a class="navbar-brand" href="/">Ritual</a>
+      <div class="navbar-nav">
+      <a class="nav-link active" href="/categories">My Rituals</a>
+      <a class="nav-link" href="/rituals/new">Create New Ritual</a>
+      <a class="nav-link" href="/logout">Logout</a>
+      </div>
+      </nav>
+    <% else %>
+        <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+        <a class="navbar-brand" href="/">Ritual</a>
+        <div class="navbar-nav">
+        <a class="nav-link active" href="/signup">Signup <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/login">Login</a>
+        </nav>
       <% end %>
-    </div>
+   
     <div class="wrapper">
       
         <%= yield %>
