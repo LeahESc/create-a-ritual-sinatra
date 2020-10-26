@@ -1,0 +1,10 @@
+<h2>Your well-being rituals</h2>
+
+<% @rituals.each do |r| %>
+< r.category.name >
+<h3><%= r.title %></h3>
+<h3><%= r.description %></h3>
+<hr>
+<% end%>
+
+<a href="/rituals/new">Add a new ritual</a>

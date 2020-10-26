@@ -1,0 +1,10 @@
+Category.create(name: "Mental Well-Being")
+Category.create(name: "Physical Well-Being")
+Category.create(name: "Personal Growth")
+Category.create(name: "Creative Pursuits")
+Category.create(name: "Self-Care")
+Category.create(name: "Mindfulness")
+Category.create(name: "General Health")
+Category.create(name: "Emotional Well-Being")
+Category.create(name: "Spiritual Practices")
+

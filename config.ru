@@ -6,7 +6,7 @@ end
 
 use Rack::MethodOverride
 use SessionsController
-use UserController
-use CategoryController
-use RitualController
+use UsersController
+use CategoriesController
+use RitualsController
 run ApplicationController

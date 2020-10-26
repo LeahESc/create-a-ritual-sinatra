@@ -1,0 +1,13 @@
+
+<@ritual.category.name >
+<h3><%= @ritual.title %></h3>
+<h3><%= @ritual.description %></h3>
+
+
+<button><a href="/rituals/<%=@ritual.id%>/edit">Edit this ritual</a></button> 
+
+<button><a href="/rituals/new">Create a new ritual</a></button>
+  <form action="/rituals/<%= @ritual.id %>/delete" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input class="submit" type="submit" value="Delete">
+  </form>
