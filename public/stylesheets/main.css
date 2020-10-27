@@ -135,14 +135,19 @@
 
   .btn-nice {
     color: #ffffff !important;
+    font-size: 10px !important;
     background-color: rgb(141, 128, 104);
     border: none;
-    width: 20px
-    height: auto;
     padding: 10px 24px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
+    transition-duration: 0.4s;
+}
+
+.btn-nice:hover {
+  background-color: #3f2f1f; 
+  color: white;
 
   }
 
