@@ -3,6 +3,7 @@
 <br>
 <br>
 <% @category.rituals.each do |r| %>
+<% if current_user.rituals.include?(r)%>
     <h2><%= r.title %></h2>
     <h5><%= r.description %></h5>
     
@@ -15,4 +16,5 @@
 <button class ="btn-nice"><a class="text-my-own-color" href="/rituals/<%= r.id %>/edit">Edit this ritual</a></button>
 
 <button class ="btn-nice"><a class="text-my-own-color"href="/categories/<%= @category.id %>/rituals/new">Create a new ritual in this category</a></button>
+<% end%>
 <% end%>
