@@ -52,7 +52,7 @@ class RitualsController < ApplicationController
             if @ritual
                 erb :'rituals/show'
             else  
-                redirect '/rituals'
+                redirect '/categories'
             end 
         else  
             redirect '/login'

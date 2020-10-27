@@ -3,8 +3,8 @@
 <% @rituals.each do |r| %>
 <h3><%= r.title %></h3>
 <p><%= r.description %></p>
-<button><a href="/rituals/<%= r.id %>/edit">Edit this ritual</a></button>
-<button><a href="/rituals/<%= r.id %>/delete">Delete this ritual</a></button>
+<button class ="btn-nice"><a href="/rituals/<%= r.id %>/edit">Edit this ritual</a></button>
+<button class ="btn-nice"><a href="/rituals/<%= r.id %>/delete">Delete this ritual</a></button>
 <hr>
 <% end%>
 

@@ -1,11 +1,10 @@
-
+<h6>Your rituals for personal health and well-being</h6>
 <% @categories.each do |c| %>
 <h2><%= c.name %></h2>
 <h3><% c.rituals.each do |r| %></h3>
 <h3><%= r.title %></h3>
 <h3><%= r.description %></h3>
-<br>
-<button><a class="text-my-own-color" href="/rituals/<%= r.id %>/edit">Edit this ritual</a></button> 
+<br> 
 <br>
 <br>
   <form action="/rituals/<%= r.id %>/delete" method="post">
@@ -13,14 +12,16 @@
     <input class="submit" type="submit" value="Delete This Ritual">
   </form>
   <br>
+  <button class ="btn-nice"><a class="text-my-own-color" href="/rituals/<%= r.id %>/edit">Edit this ritual</a></button>
+  <button class ="btn-nice"><a class="text-my-own-color" href="/rituals/<%= r.id %>">View this ritual</a></button>
 <% end%>
-<button><a class="text-my-own-color"href="/categories/<%= c.id %>">View all rituals in this category</a></button> 
+<button class ="btn-nice"><a class="text-my-own-color" href="/categories/<%= c.id %>">View all rituals in this category</a></button> 
 <br>
 <br>
 <br>
 <% end%>
 <br>
 <br>
-<button><a class="text-my-own-color" href="/rituals/new">Create a new ritual</a></button>
+<button class ="btn-nice"><a class="text-my-own-color" href="/rituals/new">Create a new ritual</a></button>
 
 
