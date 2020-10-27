@@ -1,9 +1,11 @@
-<h6>Your rituals for personal health and well-being</h6>
+<h6>Your personal rituals for well-being</h6>
+<br>
+<br>
 <% @categories.each do |c| %>
 <h2><%= c.name %></h2>
-<h3><% c.rituals.each do |r| %></h3>
+<% c.rituals.each do |r| %>
 <h3><%= r.title %></h3>
-<h3><%= r.description %></h3>
+<p><%= r.description %></p>
 <br> 
 <br>
 <br>
@@ -14,7 +16,12 @@
   <br>
   <button class ="btn-nice"><a class="text-my-own-color" href="/rituals/<%= r.id %>/edit">Edit this ritual</a></button>
   <button class ="btn-nice"><a class="text-my-own-color" href="/rituals/<%= r.id %>">View this ritual</a></button>
+<br>
+<br>
+<br>
+<br>
 <% end%>
+
 <button class ="btn-nice"><a class="text-my-own-color" href="/categories/<%= c.id %>">View all rituals in this category</a></button> 
 <br>
 <br>
