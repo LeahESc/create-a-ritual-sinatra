@@ -1,11 +1,10 @@
-<h2>Your well-being rituals</h2>
+<h6>Your personal well-being rituals</h6>
 
 <% @rituals.each do |r| %>
 <h3><%= r.title %></h3>
 <p><%= r.description %></p>
-<button class ="btn-nice"><a href="/rituals/<%= r.id %>/edit">Edit this ritual</a></button>
-<button class ="btn-nice"><a href="/rituals/<%= r.id %>/delete">Delete this ritual</a></button>
+ <button class ="btn-nice"><a class="text-my-own-color" href="/rituals/<%= r.id %>/edit">Edit this ritual</a></button>
+  <button class ="btn-nice"><a class="text-my-own-color" href="/rituals/<%= r.id %>">View this ritual</a></button>
 <hr>
 <% end%>
-
-<a href="/rituals/new">Add a new ritual</a>
+<button class ="btn-nice"><a class="text-my-own-color" href="/rituals/new">Add a new ritual</a></button>
