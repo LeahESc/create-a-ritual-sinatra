@@ -3,19 +3,24 @@
 <h2><%= c.name %></h2>
 <h3><% c.rituals.each do |r| %></h3>
 <h3><%= r.title %></h3>
-<p><%= r.description %></p>
-<button><a href="/rituals/<%= r.id %>/edit">Edit this ritual</a></button>
+<h3><%= r.description %></h3>
+<br>
+<button><a class="text-my-own-color" href="/rituals/<%= r.id %>/edit">Edit this ritual</a></button> 
+<br>
+<br>
   <form action="/rituals/<%= r.id %>/delete" method="post">
     <input type="hidden" name="_method" value="delete">
     <input class="submit" type="submit" value="Delete This Ritual">
   </form>
+  <br>
+<% end%>
+<button><a class="text-my-own-color"href="/categories/<%= c.id %>">View all rituals in this category</a></button> 
+<br>
+<br>
+<br>
 <% end%>
 <br>
-<h3><a href="/categories/<%= c.id %>">View all rituals in this category</a> </h3>
-<hr>
-<% end%>
 <br>
-<br>
-<a href="/rituals/new">Create a new ritual</a>
+<button><a class="text-my-own-color" href="/rituals/new">Create a new ritual</a></button>
 
 

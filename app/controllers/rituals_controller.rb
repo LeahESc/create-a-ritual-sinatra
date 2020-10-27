@@ -32,7 +32,6 @@ class RitualsController < ApplicationController
 
     post '/rituals' do 
         if logged_in?
-            # binding.pry
             @ritual = current_user.rituals.build(title: params[:title], description: params[:description], category_id: params[:category_id])
             if !!params["name"] && !params["name"].empty? 
                 @ritual.category = Category.find_or_create_by(name: params[:name])
