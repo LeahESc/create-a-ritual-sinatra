@@ -1,14 +1,13 @@
 
-<h3><%= @ritual.category.name %></h3>
-<h3><%= @ritual.title %></h3>
+<h6><%= @ritual.category.name %></h6>
+<h2><%= @ritual.title %></h2>
 <h3><%= @ritual.description %></h3>
 
 
-<button><a href="/rituals/<%=@ritual.id%>/edit">Edit this ritual</a></button> 
-
-<button><a href="/rituals/new">Create a new ritual</a></button>
- 
-  <form action="/rituals/<%= @ritual.id %>/delete" method="post">
+<form action="/rituals/<%= @ritual.id %>/delete" method="post">
     <input type="hidden" name="_method" value="delete">
     <input class="submit" type="submit" value="Delete This Ritual">
   </form>
+  <br>
+  <button class ="btn-nice"><a class="text-my-own-color" href="/rituals/<%= @ritual.id %>/edit">Edit this ritual</a></button>
+  <button class ="btn-nice"><a class="text-my-own-color" href="/rituals/new">Create a new ritual</a></button>
