@@ -137,7 +137,9 @@
     color: #ffffff !important;
     background-color: rgb(141, 128, 104);
     border: none;
-    padding: 15px 32px;
+    width: 20px
+    height: auto;
+    padding: 10px 24px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
