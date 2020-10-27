@@ -1,3 +1,4 @@
+<div class="center">
 <h6>Your personal well-being rituals</h6>
 
 <% @rituals.each do |r| %>
@@ -7,4 +8,5 @@
   <button class ="btn-nice"><a class="text-my-own-color" href="/rituals/<%= r.id %>">View this ritual</a></button>
 <hr>
 <% end%>
-<button class ="btn-nice"><a class="text-my-own-color" href="/rituals/new">Add a new ritual</a></button>
+</div>
+<button class ="btn-cool"><a class="text-my-own-color" href="/rituals/new">Add a new ritual</a></button>

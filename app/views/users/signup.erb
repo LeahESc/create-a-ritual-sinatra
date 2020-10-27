@@ -1,12 +1,14 @@
-<h2>Sign up to begin creating rituals for your well-being and personal growth</h2>
-
+<div class ="center">
+<h2>Sign up to begin creating your well-being rituals</h2>
+<br>
+<br>
 <form method="POST" action="/signup">
 <label>Username: <input type="text" name="username"> </label>
 <label for="email">Email: <input type="text" name="email"> </label>
 <label for="password">Password: <input type="password" name="password"> </label>
 <input type="submit" value="Sign Up!">
 </form>
-
+</div>
 <% if @user %>
 <h1>The Errors</h1>
 <% @user.errors.full_messages.each do |m|%>
