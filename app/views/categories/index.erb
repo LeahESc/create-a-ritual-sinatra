@@ -6,7 +6,7 @@
 <h2><%= c.name %></h2>
 <br>
 <% c.rituals.each do |r| %>
-<% if current_user.rituals.include?(r)%>
+<% if @rituals.include?(r)%>
 <h3><%= r.title %></h3>
 <h5><%= r.description %></h5>
 <br> 

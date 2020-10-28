@@ -3,6 +3,7 @@ class CategoriesController < ApplicationController
     get '/categories' do
         if logged_in? 
             @categories = current_user.categories.uniq
+            @rituals = current_user.rituals.uniq
             erb :'categories/index'
         else  
             redirect '/login'
