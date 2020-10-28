@@ -12,7 +12,12 @@ class CategoriesController < ApplicationController
     get '/categories/:id' do
         if logged_in? 
             @category = current_user.categories.find_by(id: params[:id])
-        erb :'categories/show'
+            if @category
+                @rituals = current_user.rituals.where(category_id: params[:id])
+                erb :'categories/show'
+            else  
+                redirect '/categories'
+            end
         else  
             redirect '/login'
         end
