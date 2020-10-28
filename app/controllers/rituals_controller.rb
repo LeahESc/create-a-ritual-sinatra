@@ -32,15 +32,19 @@ class RitualsController < ApplicationController
 
     post '/rituals' do 
         if logged_in?
-            @ritual = current_user.rituals.build(title: params[:title], description: params[:description], category_id: params[:category_id])
-            if !!params["name"] && !params["name"].empty? 
-                @ritual.category = Category.find_or_create_by(name: params[:name])
-            end
-            if @ritual.save
-                redirect '/categories'
+            if !params[:category_id].blank? 
+                @ritual = current_user.rituals.build(title: params[:title], description: params[:description], category_id: params[:category_id])
+                if !!params["name"] && !params["name"].empty? 
+                    @ritual.category = Category.find_or_create_by(name: params[:name])
+                end
+                if @ritual.save
+                    redirect '/categories'
+                else  
+                    redirect '/rituals/new'
+                end
             else  
                 redirect '/rituals/new'
-            end 
+            end
         else  
             redirect '/login'
         end 
