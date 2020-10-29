@@ -32,18 +32,15 @@ class RitualsController < ApplicationController
 
     post '/rituals' do 
         if logged_in?
-            if !params[:category_id].blank? 
-                @ritual = current_user.rituals.build(title: params[:title], description: params[:description], category_id: params[:category_id])
-                if !!params["name"] && !params["name"].empty? 
-                    @ritual.category = Category.find_or_create_by(name: params[:name])
-                end
-                if @ritual.save
-                    redirect '/categories'
-                else  
-                    redirect '/rituals/new'
-                end
+            @ritual = current_user.rituals.build(title: params[:title], description: params[:description], category_id: params[:category_id])
+            if !!params["name"] && !params["name"].empty? 
+                @ritual.category = Category.find_or_create_by(name: params[:name])
+            end
+            if @ritual.save
+                redirect '/categories'
             else  
-                redirect '/rituals/new'
+                @message = @ritual.errors.full_messages.join(". ")
+                erb :'rituals/new'
             end
         else  
             redirect '/login'
@@ -52,60 +49,43 @@ class RitualsController < ApplicationController
 
     get '/rituals/:id' do 
         if logged_in? 
-            @ritual = current_user.rituals.find_by(id: params[:id])
-            if @ritual
-                erb :'rituals/show'
-            else  
-                redirect '/categories'
-            end 
+            set_ritual
+            erb :'rituals/show'
         else  
             redirect '/login'
         end 
     end
 
     get '/rituals/:id/edit' do
-        if logged_in?
-            @ritual = current_user.rituals.find_by(id: params[:id])
-            if @ritual
-            erb :'rituals/edit'
-            else  
-                redirect '/categories'
-            end 
-        else  
-            redirect '/login'
-        end
-    end
+        redirect?
+        set_ritual
+        erb :'rituals/edit'
+    end 
 
     patch '/rituals/:id' do
-        if logged_in?
-            @ritual = current_user.rituals.find_by(id: params[:id])
-            if @ritual 
-                if @ritual.update(title: params[:title], description: params[:description])
-                redirect '/categories'
-                else  
-                redirect "/rituals/#{@ritual.id}/edit"
-                end 
-            else  
-                redirect '/categories'
-            end 
+        redirect?
+        set_ritual 
+        if @ritual.update(title: params[:title], description: params[:description])
+            redirect '/categories'
         else  
-            redirect '/login'  
-        end 
+            redirect "/rituals/#{@ritual.id}/edit"
+        end  
     end 
             
 
     delete '/rituals/:id/delete' do
-        if logged_in? 
-            @ritual = current_user.rituals.find_by(id: params[:id])
-            if @ritual 
-                @ritual.destroy 
-                redirect '/categories'
-            else  
-                redirect '/categories'
-            end 
-        else  
-            redirect '/login'
+        redirect?
+        set_ritual
+        @ritual.destroy 
+        redirect '/categories' 
+    end
+    
+    def set_ritual
+        @ritual = current_user.rituals.find_by(id: params[:id])
+        if !@ritual 
+            redirect '/categories'
         end
-    end 
+    end
+
 
 end 
